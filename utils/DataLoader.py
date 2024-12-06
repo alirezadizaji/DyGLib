@@ -42,6 +42,46 @@ def get_idx_data_loader(indices_list: list, batch_size: int, shuffle: bool):
                              drop_last=False)
     return data_loader
 
+class CustomizedSnapshotBasedDataset(Dataset):
+    def __init__(self, interact_times: np.ndarray):
+        """
+        Customized dataset.
+        :param interact_times: interact times that starts from zero
+        """
+        super(CustomizedSnapshotBasedDataset, self).__init__()
+        self.interact_times = interact_times
+        self.num_unique_snapshots = np.unique(self.interact_times)
+        self.first_snapshot_t = self.interact_times.min()
+
+    def __getitem__(self, idx: int):
+        """
+        get item at the index in self.interact_times. idx here represents the snapshot index.
+        :param idx: int, the index
+        :return:
+        """
+        indices = np.nonzero(self.interact_times == (idx + self.first_snapshot_t))
+        return indices
+
+    def __len__(self):
+        return len(np.unique(self.interact_times))
+
+
+def get_snapshot_idx_data_loader(interact_times: list):
+    """
+    get data loader that iterates over indices
+    :param indices_list: list, list of indices
+    :param batch_size: int, batch size
+    :param shuffle: boolean, whether to shuffle the data
+    :return: data_loader, DataLoader
+    """
+    dataset = CustomizedSnapshotBasedDataset(interact_times=interact_times)
+
+    data_loader = DataLoader(dataset=dataset,
+                             batch_size=1,
+                             shuffle=False,
+                             drop_last=False)
+    return data_loader
+
 
 class Data:
 
