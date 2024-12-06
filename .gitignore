@@ -116,3 +116,5 @@ processed_data/*/*
 
 # Model saving
 *.pkl
+*.out
+*.json

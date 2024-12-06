@@ -195,7 +195,7 @@ def evaluate_snapshot_model_link_prediction(model_name: str, model: nn.Module, n
             snapshot_t = np.unique(batch_node_interact_times)[0]
 
             # Find all the
-            neg_snapshot = np.ones((evaluate_data.num_unique_nodes, evaluate_data.num_unique_nodes))
+            neg_snapshot = np.ones((100, 100))
             # src and dst node ids starts from one, and for indexing it's good to start from zero.
             neg_snapshot[batch_src_node_ids - 1, batch_dst_node_ids - 1] = 0
             np.fill_diagonal(neg_snapshot, 0)
