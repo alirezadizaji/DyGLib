@@ -6,6 +6,8 @@
 
 DATASET="$1"
 cd $HOME/lab/forked_repo/DyGLib/
+module load python/3.8
+source $HOME/envs/tsa/bin/activate
 
 python train_link_prediction_snapshot.py \
     --dataset_name "$1" \

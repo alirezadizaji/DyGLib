@@ -1,10 +1,9 @@
 #!/bin/sh
 cd $HOME/lab/forked_repo/DyGLib/scripts
-rm -rf logs/
 
-for K in 2 4 8 16 32 64 128 256 512
+for K in 2
 do
-    for N in 1
+    for N in 2 4 8 16 32 64 128 256 512
     do
         for SCRIPT in "_dygformer" "_tgat" "_tgn"
         do

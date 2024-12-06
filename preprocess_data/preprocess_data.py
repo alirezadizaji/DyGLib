@@ -153,7 +153,10 @@ def check_data(dataset_name: str):
 parser = argparse.ArgumentParser('Interface for preprocessing datasets')
 parser.add_argument('--dataset_name', type=str,
                     choices=['wikipedia', 'reddit', 'mooc', 'lastfm', 'myket', 'enron', 'SocialEvo', 'uci',
-                             'Flights', 'CanParl', 'USLegis', 'UNtrade', 'UNvote', 'Contacts', "(2, 1)", "(4, 1)", "(8, 1)", "(16, 1)", "(32, 1)", "(64, 1)", "(128, 1)", "(256, 1)", "(512, 1)"],
+                             'Flights', 'CanParl', 'USLegis', 'UNtrade', 'UNvote', 'Contacts', 
+                             "(2, 1)", "(4, 1)", "(8, 1)", "(16, 1)", "(32, 1)", "(64, 1)", "(128, 1)", "(256, 1)", "(512, 1)",
+                             "(2, 2)", "(2, 4)", "(2, 8)", "(2, 16)", "(2, 32)", "(2, 64)", "(2, 128)", "(2, 256)", "(2, 512)",
+                            ],
                     help='Dataset name', default='wikipedia')
 parser.add_argument('--node_feat_dim', type=int, default=172, help='Number of node raw features')
 

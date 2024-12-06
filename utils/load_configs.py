@@ -12,7 +12,9 @@ def get_link_prediction_args(is_evaluation: bool = False):
     # arguments
     parser = argparse.ArgumentParser('Interface for the link prediction task')
     parser.add_argument('--dataset_name', type=str, help='dataset to be used', default='wikipedia',
-                        choices=['wikipedia', 'reddit', 'mooc', 'lastfm', 'myket', 'enron', 'SocialEvo', 'uci', 'Flights', 'CanParl', 'USLegis', 'UNtrade', 'UNvote', 'Contacts', '(2, 1)', '(4, 1)', '(8, 1)', '(16, 1)', '(32, 1)', '(64, 1)', '(128, 1)', '(256, 1)', '(512, 1)'])
+                        choices=['wikipedia', 'reddit', 'mooc', 'lastfm', 'myket', 'enron', 'SocialEvo', 'uci', 'Flights', 'CanParl', 'USLegis', 'UNtrade', 'UNvote', 'Contacts', 
+                                 '(2, 1)', '(4, 1)', '(8, 1)', '(16, 1)', '(32, 1)', '(64, 1)', '(128, 1)', '(256, 1)', '(512, 1)',
+                                 '(2, 2)', '(2, 4)', '(2, 8)', '(2, 16)', '(2, 32)', '(2, 64)', '(2, 128)', '(2, 256)', '(2, 512)'])
     parser.add_argument('--batch_size', type=int, default=200, help='batch size')
     parser.add_argument('--model_name', type=str, default='DyGFormer', help='name of the model, note that EdgeBank is only applicable for evaluation',
                         choices=['JODIE', 'DyRep', 'TGAT', 'TGN', 'CAWN', 'EdgeBank', 'TCL', 'GraphMixer', 'DyGFormer'])
