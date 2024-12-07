@@ -363,7 +363,7 @@ if __name__ == "__main__":
 
         # the saved best model of memory-based models cannot perform validation since the stored memory has been updated by validation data
         if args.model_name not in ['JODIE', 'DyRep', 'TGN']:
-            val_losses, val_metrics = evaluate_model_link_prediction(model_name=args.model_name,
+            val_losses, val_metrics = evaluate_snapshot_model_link_prediction(model_name=args.model_name,
                                                                      model=model,
                                                                      neighbor_sampler=full_neighbor_sampler,
                                                                      evaluate_idx_data_loader=val_idx_data_loader,

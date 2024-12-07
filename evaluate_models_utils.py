@@ -194,7 +194,7 @@ def evaluate_snapshot_model_link_prediction(model_name: str, model: nn.Module, n
             assert len(np.unique(batch_node_interact_times)) == 1, "Snapshot evaluation is done only on one timestamp at a time."
             snapshot_t = np.unique(batch_node_interact_times)[0]
 
-            # Find all the
+            # Find all the negative links in a snapshot
             neg_snapshot = np.ones((100, 100))
             # src and dst node ids starts from one, and for indexing it's good to start from zero.
             neg_snapshot[batch_src_node_ids - 1, batch_dst_node_ids - 1] = 0
